@@ -1,10 +1,11 @@
 import React from "react";
-import Link from "next/link";
+import AppHeader from "../../comonents/Header";
 
 const index = () => {
   return (
     <div>
-      <Link href="/welcome"> Login</Link>
+      <AppHeader />
+      welcome Page
     </div>
   );
 };
