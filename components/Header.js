@@ -27,9 +27,9 @@ const AppHeader = () => {
   return (
     <div>
       <div className={styles.miandiv}>
-        <a href="/">
+        <Link href="/">
           <p> Arrimo</p>
-        </a>
+        </Link>
       </div>
       <>
         <Button

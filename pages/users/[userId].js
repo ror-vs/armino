@@ -7,7 +7,7 @@ import AppHeader from "../../components/Header";
 import { useRouter } from "next/router";
 import UserForm from "../../components/UserForm";
 
-const index = () => {
+const Index = () => {
   const users = useSelector((state) => state?.value);
   const router = useRouter();
   const getId = router.query.userId;
