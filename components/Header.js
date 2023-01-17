@@ -52,9 +52,6 @@ const AppHeader = () => {
             <Link href="/events">
               <Button type="text">events</Button>
             </Link>
-            <Button type="text" onClick={logoutHandler}>
-              Logout
-            </Button>
           </div>
         </Drawer>
       </>

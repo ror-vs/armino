@@ -23,13 +23,17 @@ const UserRegister = () => {
             <p>No Users Exist </p>
           </div>
         ) : (
-          <Row>
+          <Row style={{ justifyContent: "space-evenly" }}>
             {users?.map((user, ind) => {
               return (
                 <Col
                   key={ind}
                   span={{ xs: 12, md: 6, lg: 4 }}
-                  style={{ marginRight: "20px", padding: "50px" }}
+                  style={{
+                    marginRight: "20px",
+                    padding: "50px",
+                    display: "flex",
+                  }}
                 >
                   <UserCard user={user} delHandler={delHandler} />
                 </Col>

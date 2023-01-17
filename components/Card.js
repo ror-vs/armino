@@ -12,7 +12,11 @@ const UserCard = ({ user, delHandler }) => {
         width: "400px",
       }}
     >
-      <Card title={`Title : ${user.values.name}`} bordered={false}>
+      <Card
+        title={`Title : ${user.values.name}`}
+        bordered={false}
+        style={{ boxShadow: "none" }}
+      >
         <p>
           <span style={{ fontWeight: "bold" }}> Email : </span>
           {user.values.email}
