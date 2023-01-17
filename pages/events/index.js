@@ -1,10 +1,11 @@
 import React from "react";
 import AppHeader from "../../components/Header";
 import Calendar from "../../components/calendar";
+import styles from "../../styles/Home.module.css";
 
 const index = () => {
   return (
-    <div>
+    <div className={styles.main}>
       <AppHeader />
       <div
         style={{

@@ -5,11 +5,9 @@ import styles from "../../styles/Home.module.css";
 
 const index = () => {
   return (
-    <div>
-      <div className={styles.main}>
-        <AppHeader />
-        <UserRegister />
-      </div>
+    <div className={styles.main}>
+      <AppHeader />
+      <UserRegister />
     </div>
   );
 };
