@@ -3,8 +3,8 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import { useRef, useState } from "react";
-import CustomModal from "./Modal";
-import { Button, Modal, Input } from "antd";
+import EditEventModal from "./Modal";
+import { Button, Modal, Input, Row, Col } from "antd";
 
 const Calendar = () => {
   const calendarRef = useRef(null);
@@ -41,10 +41,14 @@ const Calendar = () => {
 
   const renderEventContent = (eventInfo) => {
     return (
-      <div>
-        <b>{eventInfo.timeText}</b>
-        <i>{eventInfo.event.title}</i>{" "}
-      </div>
+      <>
+        <Col className="gutter-row" span={6}>
+          {eventInfo.event.title}
+        </Col>
+        <Col className="gutter-row" span={6}>
+          {eventInfo.timeText}
+        </Col>
+      </>
     );
   };
   function handleDeleteEvent() {
@@ -84,20 +88,32 @@ const Calendar = () => {
 
   return (
     <>
-      <CustomModal
+      <EditEventModal
         title={editEvent}
         setTitle={setEditEvent}
         isModalOpen={showEdit}
         setIsModalOpen={setShowEdit}
+        
         handleDeleteEvent={handleDeleteEvent}
         handleUpdate={handleUpdate}
       />
 
       <Modal
-        title="Event Modal"
+        title="Add Event"
         open={isModalOpen}
-        onOk={handleAddEvent}
-        onCancel={() => setIsModalOpen(false)}
+        footer={[
+          <Button
+            key="back"
+            type="primary"
+            danger
+            onClick={() => setIsModalOpen(false)}
+          >
+            Cancel
+          </Button>,
+          <Button key="submit" type="primary" onClick={handleAddEvent}>
+            Add Event
+          </Button>,
+        ]}
       >
         <Input
           value={title}
