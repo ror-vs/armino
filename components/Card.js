@@ -5,14 +5,27 @@ const UserCard = ({ user, delHandler }) => {
   const router = useRouter();
 
   return (
-    <div className="site-card-border-less-wrapper">
-      <Card title={user.values.name} bordered={false}>
+    <div
+      className="site-card-border-less-wrapper"
+      style={{
+        boxShadow: "0px 2px 25px rgba(51, 51, 51, 0.1)",
+        width: "400px",
+      }}
+    >
+      <Card title={`Title : ${user.values.name}`} bordered={false}>
         <p>
-          <span> email : </span>
+          <span style={{ fontWeight: "bold" }}> Email : </span>
           {user.values.email}
         </p>
-        <p>address :{user.values.address}</p>
-        <p>phone : {user.values.phone}</p>
+        <p>
+          {" "}
+          <span style={{ fontWeight: "bold" }}> Address : </span>
+          {user.values.address}
+        </p>
+        <p>
+          <span style={{ fontWeight: "bold" }}> Phone : </span>
+          {user.values.phone}
+        </p>
         <Button
           type="primary"
           danger
