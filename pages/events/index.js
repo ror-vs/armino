@@ -1,5 +1,5 @@
 import React from "react";
-import AppHeader from "../../comonents/Header";
+import AppHeader from "../../components/Header";
 
 const index = () => {
   return (

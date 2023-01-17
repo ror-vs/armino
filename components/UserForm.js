@@ -1,39 +1,13 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import { getUsers } from "../../redux/feature/user";
-import { useRouter } from "next/router";
 
-const index = ({ user, onUpdate, onFinish }) => {
-  const users = useSelector((state) => state?.value);
-  const router = useRouter();
-
-  const dispatch = useDispatch();
-
+const UserForm = ({ user, onFinish, btnText }) => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    dispatch(
-      getUsers([
-        ...users,
-        {
-          id: Number((Math.random() * 100).toFixed(0)),
-          values: values,
-        },
-      ])
-    );
-    form.resetFields();
-    router.push("/users");
-  };
-
-  const onUpdate = (values) => {
-    dispatch(getUsers(users));
-    form.resetFields();
-  };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
     <div
       style={{
@@ -53,26 +27,27 @@ const index = ({ user, onUpdate, onFinish }) => {
         initialValues={{
           remember: true,
         }}
-        onFinish={onUpdate}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
         autoComplete="off"
         style={{ padding: "100px 20px" }}
         form={form}
         fields={[
           {
             name: ["name"],
-            value: editUser?.values?.name,
+            value: user?.values?.name,
           },
           {
             name: ["email"],
-            value: editUser.values?.email,
+            value: user?.values?.email,
           },
           {
             name: ["address"],
-            value: editUser?.values?.address,
+            value: user?.values?.address,
           },
           {
             name: ["phone"],
-            value: editUser.values?.phone,
+            value: user?.values?.phone,
           },
         ]}
       >
@@ -86,7 +61,7 @@ const index = ({ user, onUpdate, onFinish }) => {
             },
           ]}
         >
-          <Input initialvalues={editUser?.values?.name} />
+          <Input />
         </Form.Item>
         <Form.Item
           label="Email"
@@ -130,11 +105,11 @@ const index = ({ user, onUpdate, onFinish }) => {
           htmlType="submit"
           style={{ width: "170px", margin: "0 auto", display: "block" }}
         >
-          Update
+          {btnText}
         </Button>
       </Form>
     </div>
   );
 };
 
-export default index;
+export default UserForm;

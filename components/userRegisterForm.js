@@ -15,7 +15,7 @@ const UserRegister = () => {
   return (
     <>
       <div>
-        <Button href="/add-user" type="primary">
+        <Button href="/add-user" type="primary" style={{ marginTop: "50px" }}>
           Add users
         </Button>
         {users?.length == 0 ? (

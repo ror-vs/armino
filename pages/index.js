@@ -1,6 +1,5 @@
 import React from "react";
-import Link from "next/link";
-import LoginForm from "../comonents/Login";
+import LoginForm from "../components/Login";
 
 const index = () => {
   return (

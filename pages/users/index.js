@@ -1,6 +1,6 @@
 import React from "react";
-import AppHeader from "../../comonents/Header";
-import UserRegister from "../../comonents/userRegisterForm";
+import AppHeader from "../../components/Header";
+import UserRegister from "../../components/userRegisterForm";
 import styles from "../../styles/Home.module.css";
 
 const index = () => {

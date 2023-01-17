@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import { MenuOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
+import { useDispatch } from "react-redux";
+import { getUsers } from "../redux/feature/user";
+import router from "next/router";
 const { SubMenu } = Menu;
 const { Text } = Typography;
 
@@ -13,6 +16,14 @@ const AppHeader = () => {
   const handleClick = (e) => {
     setVisible({ current: e.key });
   };
+
+  const logoutHandler = () => {
+    router.push("/");
+    localStorage.removeItem("token");
+    dispatch(getUsers([]));
+  };
+
+  const dispatch = useDispatch();
   return (
     <div>
       <div className={styles.miandiv}>
@@ -35,8 +46,15 @@ const AppHeader = () => {
           visible={visible}
         >
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <Button type="text">Users</Button>
-            <Button type="text">Events</Button>
+            <Link href="/users">
+              <Button type="text">Users</Button>
+            </Link>
+            <Link href="/events">
+              <Button type="text">events</Button>
+            </Link>
+            <Button type="text" onClick={logoutHandler}>
+              Logout
+            </Button>
           </div>
         </Drawer>
       </>
@@ -51,16 +69,15 @@ const AppHeader = () => {
           <Link href="/users"> Users </Link>
         </Menu.Item>
         <Menu.Item key="events">
-          <Link href="/event"> Events </Link>
-        </Menu.Item>
-        <Menu.Item key="events" style={{ marginLeft: "800px" }}>
-          <Link href="/">
-            <Button onClick={() => localStorage.removeItem("token")}>
-              Log out
-            </Button>
-          </Link>
+          <Link href="/events"> Events </Link>
         </Menu.Item>
       </Menu>
+      <Button
+        onClick={logoutHandler}
+        style={{ position: "absolute", top: "76px", right: "80px" }}
+      >
+        Log out
+      </Button>
     </div>
   );
 };
