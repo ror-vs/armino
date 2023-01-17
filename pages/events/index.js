@@ -3,7 +3,7 @@ import AppHeader from "../../components/Header";
 import Calendar from "../../components/calendar";
 import styles from "../../styles/Home.module.css";
 
-const index = () => {
+const Index = () => {
   return (
     <div className={styles.main}>
       <AppHeader />
@@ -22,4 +22,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
