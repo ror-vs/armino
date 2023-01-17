@@ -1,6 +1,6 @@
 import React from "react";
-import AppHeader from "../../comonents/Header";
-import Calendar from "../../comonents/calendar";
+import AppHeader from "../../components/Header";
+import Calendar from "../../components/calendar";
 
 const index = () => {
   return (
