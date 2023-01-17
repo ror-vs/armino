@@ -17,6 +17,9 @@ const LoginForm = () => {
         boxShadow: "0px 2px 25px rgba(51, 51, 51, 0.1)",
       }}
     >
+      <h2 style={{ padding: "40px 0px 20px 0px", textAlign: "center" }}>
+        Sign in
+      </h2>
       <Form
         name="basic"
         labelCol={{
@@ -38,8 +41,12 @@ const LoginForm = () => {
           name="username"
           rules={[
             {
+              type: "email",
+              message: "The Email is not valid E-mail!",
+            },
+            {
               required: true,
-              message: "Please input your username!",
+              message: "Please Enter your E-mail!",
             },
           ]}
         >
@@ -60,23 +67,16 @@ const LoginForm = () => {
         </Form.Item>
 
         <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{
-            offset: 9,
-            span: 16,
-          }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
-        <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,
           }}
         >
-          <Button type="primary" htmlType="submit" style={{ width: "50%" }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ width: "50%", marginTop: "50px" }}
+          >
             Submit
           </Button>
         </Form.Item>

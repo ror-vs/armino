@@ -71,7 +71,7 @@ const AppHeader = () => {
       </Menu>
       <Button
         onClick={logoutHandler}
-        style={{ position: "absolute", top: "76px", right: "80px" }}
+        style={{ position: "absolute", top: "63px", right: "100px" }}
       >
         Log out
       </Button>

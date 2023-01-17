@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
+import { InputNumber } from "antd";
 
 const UserForm = ({ user, onFinish, btnText }) => {
   const [form] = Form.useForm();
@@ -16,6 +17,9 @@ const UserForm = ({ user, onFinish, btnText }) => {
         boxShadow: "0px 2px 25px rgba(51, 51, 51, 0.1)",
       }}
     >
+      <h2 style={{ padding: "40px 0px 0px 0px", textAlign: "center" }}>
+        Add New User
+      </h2>
       <Form
         name="basic"
         labelCol={{
@@ -30,7 +34,7 @@ const UserForm = ({ user, onFinish, btnText }) => {
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
-        style={{ padding: "100px 20px" }}
+        style={{ padding: "50px 20px" }}
         form={form}
         fields={[
           {
@@ -57,7 +61,7 @@ const UserForm = ({ user, onFinish, btnText }) => {
           rules={[
             {
               required: true,
-              message: "Please input your name!",
+              message: "Please enter your name!",
             },
           ]}
         >
@@ -68,8 +72,12 @@ const UserForm = ({ user, onFinish, btnText }) => {
           name="email"
           rules={[
             {
+              type: "email",
+              message: "The Email is not valid E-mail!",
+            },
+            {
               required: true,
-              message: "Please input your email!",
+              message: "Please Enter your E-mail!",
             },
           ]}
         >
@@ -94,11 +102,11 @@ const UserForm = ({ user, onFinish, btnText }) => {
           rules={[
             {
               required: true,
-              message: "Please input your phone!",
+              message: "Please Enter your phone!",
             },
           ]}
         >
-          <Input />
+          <Input controls={false} type="number" />
         </Form.Item>
         <Button
           type="primary"
