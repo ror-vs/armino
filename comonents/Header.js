@@ -15,16 +15,7 @@ const AppHeader = () => {
   };
   return (
     <div>
-      <div
-        className={styles.miandiv}
-        style={{
-          float: "left",
-          width: "220px",
-          height: "31px",
-          // margin: "0px 24px 16px 0",
-          background: "rgba(255, 255, 255, 0.3)",
-        }}
-      >
+      <div className={styles.miandiv}>
         <a href="/">
           <p> Arrimo</p>
         </a>
@@ -57,10 +48,17 @@ const AppHeader = () => {
         overflowedIndicator={<MenuOutlined />}
       >
         <Menu.Item key="users">
-          <Link href="/user"> Users </Link>
+          <Link href="/users"> Users </Link>
         </Menu.Item>
         <Menu.Item key="events">
           <Link href="/event"> Events </Link>
+        </Menu.Item>
+        <Menu.Item key="events" style={{ marginLeft: "800px" }}>
+          <Link href="/">
+            <Button onClick={() => localStorage.removeItem("token")}>
+              Log out
+            </Button>
+          </Link>
         </Menu.Item>
       </Menu>
     </div>

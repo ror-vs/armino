@@ -1,10 +1,11 @@
 import React from "react";
 import Link from "next/link";
+import LoginForm from "../comonents/Login";
 
 const index = () => {
   return (
     <div>
-      <Link href="/welcome"> Login</Link>
+      <LoginForm />
     </div>
   );
 };
